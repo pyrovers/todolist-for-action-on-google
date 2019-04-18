@@ -3,8 +3,6 @@ const {WebhookClient} = require('dialogflow-fulfillment');
 const {Card, Suggestion} = require('dialogflow-fulfillment');
 const dateformat = require('dateformat');
 
-const fs = require("fs");
-const readline = require("readline");
 const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
 const googleCredentials = require("./credentials.json");
@@ -13,12 +11,6 @@ const ERROR_RESPONSE = {
   status: "500",
   message: "error !!!"
 }
-
-// If modifying these scopes, delete token.json.
-const SCOPES = ["https://www.googleapis.com/auth/tasks"];
-// The file token.json stores the user's access and refresh tokens, and is
-// created automatically when the authorization flow completes for the first
-// time.
 
 exports.addTodoList = functions.https.onRequest((request, response) => {
   const agent = new WebhookClient({ request, response });
